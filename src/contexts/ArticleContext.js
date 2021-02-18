@@ -52,7 +52,7 @@ function ArticleContextProvider(props) {
   
   const findArticle = (e) => {
     e.preventDefault();
-   
+    setNecessaryArticle(true)
 
     if (searchInput.length > 0) {
       const filtered = copyArticle.filter(item => {
