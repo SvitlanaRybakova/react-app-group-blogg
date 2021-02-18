@@ -5,19 +5,17 @@ import Navbar from "./components/Navbar";
 import ArticleContextProvider from "./contexts/ArticleContext";
 import AddArticlePage from "./pages/AddArticlePage";
 
-
 function App() {
   return (
     <div className="App">
-    <ArticleContextProvider>
-      <BrowserRouter>
-        <Navbar />
-        <Route exact path="/" component={Home} />
-        {/* <Router exact path="/" component={Home}/> */}
-        <Route exact path="/about" component={About} />
-        <AddArticlePage/>
+      <ArticleContextProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/add-article-page" component={AddArticlePage} />
+          <Route exact path="/about" component={About} />
         </BrowserRouter>
-  </ArticleContextProvider>
+      </ArticleContextProvider>
     </div>
   );
 }
