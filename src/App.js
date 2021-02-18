@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import ArticleContextProvider from "./contexts/ArticleContext";
+import AddArticlePage from "./pages/AddArticlePage";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Navbar />
           <Home />
           <About />
+        <AddArticlePage/>
         </BrowserRouter>
   </ArticleContextProvider>
     </div>
