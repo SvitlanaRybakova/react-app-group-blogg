@@ -8,7 +8,7 @@ function ArticleItem(){
     <div className={styles.articleItem}>
       {articles.map(article =>{
         return(
-          <section className={styles.content}>
+          <section className={styles.content} key={article.id}>
           <h1 className={styles.header}>{article.title}</h1>
           <p className={styles.article}>{article.content}</p>
           <div className={styles.detailContainer}>
