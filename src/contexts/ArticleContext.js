@@ -6,6 +6,7 @@ export const ArticleContext = createContext();
 function ArticleContextProvider(props) {
 
   const [searchInput, setSearchInpit] = useState('');
+  
   const [articles, setArticle] = useState([
     {
       id: uuidv4(),
@@ -45,18 +46,18 @@ function ArticleContextProvider(props) {
 
   ])
 
-  useEffect( () => {
-    console.log('insde useEffect');
-  },[searchInput])
+  // create a new array that all-time saves the data
+  const [copyArticle] = useState([...articles])
 
+  
   const findArticle = (e) => {
     e.preventDefault();
-    console.log(searchInput.length);
-    console.log(articles);
+   
 
     if (searchInput.length > 0) {
-      const filtered = articles.filter(item => {
+      const filtered = copyArticle.filter(item => {
         return item.title.toLowerCase().includes(searchInput.toLowerCase())
+        
       })
       if (Object.keys(filtered).length > 0){
           setArticle(filtered);
@@ -65,7 +66,8 @@ function ArticleContextProvider(props) {
     }
     else{
       console.log('empty input');
-      setArticle(articles);
+      console.log('articles', copyArticle);
+      setArticle(copyArticle);
     }
 
     setSearchInpit('');
