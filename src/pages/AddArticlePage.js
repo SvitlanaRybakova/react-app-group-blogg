@@ -14,11 +14,17 @@ function AddArticlePage() {
     const [author, setAuthor] = useState('')
     const history = useHistory()
 
+    function currentDate() {
+        const today = new Date();
+        const date = today.getDate() + '.' + (today.getMonth()+1) + '.' + today.getFullYear();
+        return date
+    }
+
     const article = {
         id: 'some id',
         title,
         content,
-        date: '18 feb 2020',
+        date: currentDate(),
         author
     }
 
