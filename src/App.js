@@ -10,10 +10,11 @@ function App() {
   return (
     <div className="App">
     <ArticleContextProvider>
-        <BrowserRouter>
-          <Navbar />
-          <Home />
-          <About />
+      <BrowserRouter>
+        <Navbar />
+        <Route exact path="/" component={Home} />
+        {/* <Router exact path="/" component={Home}/> */}
+        <Route exact path="/about" component={About} />
         <AddArticlePage/>
         </BrowserRouter>
   </ArticleContextProvider>
