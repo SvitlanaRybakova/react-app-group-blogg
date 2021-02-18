@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { ArticleContext } from '../contexts/ArticleContext'
+import { inputs } from '../styles/AddArticlePage.module.css'
+
 
 function AddArticlePage() {
     const { addArticle } = useContext(ArticleContext)
@@ -25,10 +27,10 @@ function AddArticlePage() {
     return(
         <form onSubmit={(e) => addArticle (e, article, history)}>
             <h3>Add a new article:</h3>
-            <div>
-                <input type="text" placeholder="title" onChange={(e) => setTitle(e.target.value)}/>
-                <input type="text" placeholder="content" onChange={(e) => setContent(e.target.value)}/>
-                <input type="text" placeholder="author" onChange={(e) => setAuthor(e.target.value)}/>
+            <div className={inputs}>
+                <input type="text" placeholder="Title" onChange={(e) => setTitle(e.target.value)}/>
+                <input type="text" placeholder="Author" onChange={(e) => setAuthor(e.target.value)}/>
+                <textarea type="text" placeholder="Content" onChange={(e) => setContent(e.target.value)}/>
                 <button type='submit'>Submit</button>
             </div>
         </form>
