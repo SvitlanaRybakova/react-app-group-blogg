@@ -75,7 +75,11 @@ function ArticleContextProvider(props) {
     console.log(searchInput);
   }
 
-
+  const handleSubmit = (e, article, history) =>{
+    e.preventDefault()
+    setArticle([article, ...articles])
+    history.push('/')
+  }
 
   return (
     <ArticleContext.Provider value={{ articles, searchInput, onChange, findArticle }}>
