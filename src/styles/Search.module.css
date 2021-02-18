@@ -1,7 +1,8 @@
 .form{
   display: flex;
   width: 70%;
-  margin: 0 auto;
+  margin: 10px auto 40px;
+  
 }
 .input{
   display: block;
@@ -11,11 +12,12 @@
   border-radius: 5px;
   margin: 0 auto;
   font-size: 16px;
-
+  border: 1px solid lightgray;
 }
 .button{
-  /* display: block; */
-  background-color: lightskyblue;
+  border: 1px solid lightgray;
+  background-color: rgb(71 103 70);
+  color: #ffff;
   border-radius: 5px;
   font-weight: bold;
   padding: 13px 40px;
