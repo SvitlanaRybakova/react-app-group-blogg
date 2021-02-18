@@ -37,7 +37,7 @@ function ArticleContextProvider(props) {
       author: 'dr. who'
     },
     {
-      id:uuidv4(),
+      id: uuidv4(),
       title: 'And now, for the real fun. Actually searching!',
       content: 'We’re going to create a variable named Filtered Pets, whose return value will be an array of filtered pets, filtered based on the input value key from the state that’s been updated by the on change handler that’s invoked in the input field of the search bar. MDN explains that “The filter() method creates a new array with all elements that pass the test implemented by the provided function.” We’ll be sure to define this variable after the render lifecycle method in our Pet Container class component and before the return statement. We’ll use the variable inside the return method to pass down as an argument to our callback function for the sort handler, which we’re passing down as props to the Pet List child component. This is so we can have the array of pets in state of the parent (pet container) available as props to the child (Pet List) and so this array will be both sorted and filtered for search, depending on if that’s so.',
       date: '2020-12-02',
@@ -46,29 +46,29 @@ function ArticleContextProvider(props) {
 
   ])
 
-  // create a new array that all-time saves the data
+   // create a new array that all-time saves the data
   const [copyArticle] = useState([...articles])
 
-  
+
   const findArticle = (e) => {
+   
+    
+
     e.preventDefault();
     setNecessaryArticle(true)
 
     if (searchInput.length > 0) {
       const filtered = copyArticle.filter(item => {
         return item.title.toLowerCase().includes(searchInput.toLowerCase())
-        
       })
-      // console.log(Object.keys(filtered).length);
-      if (Object.keys(filtered).length > 0){
-          setArticle(filtered);
+      if (Object.keys(filtered).length > 0) {
+        setArticle(filtered);
       }
       else {
         setNecessaryArticle(false)
-        console.log('not found');
       }
     }
-    else{
+    else {
       setArticle(copyArticle);
     }
 
@@ -77,7 +77,6 @@ function ArticleContextProvider(props) {
 
   const onChange = (e) => {
     setSearchInpit(e.target.value);
-    console.log(searchInput);
   }
 
 
