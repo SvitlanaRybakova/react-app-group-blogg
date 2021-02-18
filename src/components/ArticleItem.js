@@ -1,15 +1,23 @@
 import styles from "../styles/ArticleItem.module.css";
+import { ArticleContext } from "../contexts/ArticleContext";
+import { useContext } from "react";
 
 function ArticleItem(){
+  const { articles } = useContext(ArticleContext)
   return(
-    <div className="articleItem">
-      <section>
-      <h1 className="header">Article header</h1>
-      <p className="article">Lorem Impsum</p>
-      <span className="timestamp">12:34 2021-02-16</span>
-      <span className={styles.author}>Mrs Authorsen</span>
-
+    <div className={styles.articleItem}>
+      {articles.map(article =>{
+        return(
+          <section className={styles.content} key={article.id}>
+          <h1 className={styles.header}>{article.title}</h1>
+          <p className={styles.article}>{article.content}</p>
+          <div className={styles.detailContainer}>
+            <span className={styles.timestamp}>{article.date}</span>
+            <span className={styles.author}>{article.author}</span>
+          </div>
       </section>
+        )
+      })}
     </div>
   );
 }
