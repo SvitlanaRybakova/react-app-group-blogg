@@ -6,7 +6,7 @@ export const ArticleContext = createContext();
 function ArticleContextProvider(props) {
 
   const [searchInput, setSearchInpit] = useState('');
-  
+  const [isNecessaryArticle, setNecessaryArticle] = useState(true)
   const [articles, setArticle] = useState([
     {
       id: uuidv4(),
@@ -59,14 +59,16 @@ function ArticleContextProvider(props) {
         return item.title.toLowerCase().includes(searchInput.toLowerCase())
         
       })
+      // console.log(Object.keys(filtered).length);
       if (Object.keys(filtered).length > 0){
           setArticle(filtered);
       }
-      
+      else {
+        setNecessaryArticle(false)
+        console.log('not found');
+      }
     }
     else{
-      console.log('empty input');
-      console.log('articles', copyArticle);
       setArticle(copyArticle);
     }
 
@@ -81,7 +83,7 @@ function ArticleContextProvider(props) {
 
 
   return (
-    <ArticleContext.Provider value={{ articles, searchInput, onChange, findArticle }}>
+    <ArticleContext.Provider value={{ articles, searchInput, onChange, findArticle, isNecessaryArticle }}>
       {props.children}
     </ArticleContext.Provider>
   )
