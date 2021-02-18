@@ -75,14 +75,17 @@ function ArticleContextProvider(props) {
     console.log(searchInput);
   }
 
-  const handleSubmit = (e, article, history) =>{
+  const addArticle = (e, article, history) =>{
     e.preventDefault()
     setArticle([article, ...articles])
     history.push('/')
+    
+    console.log(articles)
   }
 
+
   return (
-    <ArticleContext.Provider value={{ articles, searchInput, onChange, findArticle }}>
+    <ArticleContext.Provider value={{ articles, searchInput, onChange, findArticle, addArticle}}>
       {props.children}
     </ArticleContext.Provider>
   )
