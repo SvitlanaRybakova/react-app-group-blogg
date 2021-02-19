@@ -50,7 +50,7 @@ function ArticleContextProvider(props) {
 
   useEffect(() => {
     setCopyArticle(articles)
-  }, [articles]);
+  }, [copyArticle]);
 
 
   const findArticle = (e) => {
@@ -83,7 +83,6 @@ function ArticleContextProvider(props) {
     setArticle([article, ...articles])
     history.push('/')
 
-    console.log(articles);
   }
 
 
