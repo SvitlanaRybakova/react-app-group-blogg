@@ -79,10 +79,18 @@ function ArticleContextProvider(props) {
     setSearchInpit(e.target.value);
   }
 
+  const addArticle = (e, article, history) => {
+    e.preventDefault()
+    setArticle([article, ...articles])
+    history.push('/')
+
+    console.log(articles);
+  }
+
 
 
   return (
-    <ArticleContext.Provider value={{ articles, searchInput, onChange, findArticle, isNecessaryArticle }}>
+    <ArticleContext.Provider value={{ articles, searchInput, onChange, findArticle, isNecessaryArticle, addArticle }}>
       {props.children}
     </ArticleContext.Provider>
   )
