@@ -1,8 +1,16 @@
 import styles from "../styles/About.module.css";
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 function About() {
+  const { isGreenTheme, green, dark } = useContext(ThemeContext);
+  const theme = isGreenTheme ? green : dark;
+
   return (
-    <div className={styles.about}>
+    <div
+      className={styles.about}
+      style={{ background: theme.bg, color: theme.fontColor }}
+    >
       <h1 className={styles.header}>About Blogs</h1>
       <p className={styles.facts}>
         If you don’t, then you’ve come to the right place. In 1994, when blogs

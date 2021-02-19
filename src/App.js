@@ -4,18 +4,23 @@ import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import ArticleContextProvider from "./contexts/ArticleContext";
 import AddArticlePage from "./pages/AddArticlePage";
+import ThemeContextProvider from "./contexts/ThemeContext";
+import ThemeToggle from "./components/ThemeToggle"
 
 function App() {
   return (
     <div className="App">
-      <ArticleContextProvider>
-        <BrowserRouter>
-          <Navbar />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/add-article-page" component={AddArticlePage} />
-          <Route exact path="/about" component={About} />
-        </BrowserRouter>
-      </ArticleContextProvider>
+      <ThemeContextProvider>
+        <ArticleContextProvider>
+          <BrowserRouter>
+            <Navbar />
+            <ThemeToggle/>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/add-article-page" component={AddArticlePage} />
+            <Route exact path="/about" component={About} />
+          </BrowserRouter>
+        </ArticleContextProvider>
+      </ThemeContextProvider>
     </div>
   );
 }
