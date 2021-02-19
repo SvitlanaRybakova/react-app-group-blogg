@@ -15,7 +15,7 @@
   border: 1px solid lightgray;
 }
 .button{
-  border: 1px solid lightgray;
+  border: none;
   /* background-color: rgb(71 103 70); */
   /* color: #ffff; */
   border-radius: 5px;

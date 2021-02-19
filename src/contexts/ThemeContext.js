@@ -5,10 +5,10 @@ export const ThemeContext = createContext();
 function ThemeContextProvider(props){
 
   const [isGreenTheme, setIsGreenThem] = useState(true);
-  const [green , setGreen ] = useState({
-    fontColor: '#464040', bg: '#00801342', navbar: 'rgb(131, 187, 129)'
+  const [green] = useState({
+    fontColor: '#464040', bg: ' #6e9a447a', navbar: '#6e9a44'
   })
-  const [dark, setDark] = useState({
+  const [dark] = useState({
     fontColor: 'white', bg: '#000000', navbar: '#263238'
   })
 
