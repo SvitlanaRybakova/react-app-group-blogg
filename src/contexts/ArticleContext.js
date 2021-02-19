@@ -83,6 +83,8 @@ function ArticleContextProvider(props) {
     e.preventDefault()
     setArticle([article, ...articles])
     history.push('/')
+
+    console.log(articles);
   }
 
 
