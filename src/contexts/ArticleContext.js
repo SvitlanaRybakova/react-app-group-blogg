@@ -45,15 +45,15 @@ function ArticleContextProvider(props) {
     }
 
   ])
+  // create a new array that all-time saves the data
+  const [copyArticle, setCopyArticle] = useState([])
 
-   // create a new array that all-time saves the data
-  const [copyArticle] = useState([...articles])
+  useEffect(() => {
+    setCopyArticle(articles)
+  }, [articles]);
 
 
   const findArticle = (e) => {
-   
-    
-
     e.preventDefault();
     setNecessaryArticle(true)
 
@@ -74,7 +74,6 @@ function ArticleContextProvider(props) {
 
     setSearchInpit('');
   }
-
   const onChange = (e) => {
     setSearchInpit(e.target.value);
   }
