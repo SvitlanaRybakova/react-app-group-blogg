@@ -9,7 +9,7 @@ function ThemeContextProvider(props){
     fontColor: '#464040', bg: ' #6e9a447a', navbar: '#6e9a44'
   })
   const [dark] = useState({
-    fontColor: 'white', bg: '#000000', navbar: '#263238'
+    fontColor: 'white', bg: '#263238d4', navbar: '#263238'
   })
 
   const toggleTheme = () =>{
