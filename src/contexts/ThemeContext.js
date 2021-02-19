@@ -6,25 +6,19 @@ function ThemeContextProvider(props){
 
   const [isGreenTheme, setIsGreenThem] = useState(true);
   const [green , setGreen ] = useState({
-    fontColor: 'darkslategray', bg: '#00801342',
+    fontColor: '#464040', bg: '#00801342', navbar: 'rgb(131, 187, 129)'
   })
   const [dark, setDark] = useState({
-    fontColor: 'white', bg: '#000000',
+    fontColor: 'white', bg: '#000000', navbar: '#263238'
   })
 
   const toggleTheme = () =>{
     setIsGreenThem( !isGreenTheme )
   }
 
-  const data = {
-    isGreenTheme,
-    green,
-    dark,
-    toggleTheme
-  }
 
   return(
-    <ThemeContext.Provider value={{data}}>
+    <ThemeContext.Provider value={{isGreenTheme, green, dark, toggleTheme}}>
       {props.children}
     </ThemeContext.Provider>
   )
