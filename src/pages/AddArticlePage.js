@@ -1,12 +1,16 @@
 import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { ArticleContext } from '../contexts/ArticleContext'
-import { inputs } from '../styles/AddArticlePage.module.css'
+import { ArticleContext } from '../contexts/ArticleContext';
+import { inputs, button, pageTitle } from '../styles/AddArticlePage.module.css';
+import { ThemeContext } from "../contexts/ThemeContext";
+
 
 
 function AddArticlePage() {
-    const { addArticle } = useContext(ArticleContext)
-    
+    const { addArticle } = useContext(ArticleContext);
+    const { isGreenTheme, green, dark } = useContext(ThemeContext);
+    const theme = isGreenTheme ? green : dark;
+
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
@@ -16,7 +20,7 @@ function AddArticlePage() {
 
     function currentDate() {
         const today = new Date();
-        const date = today.getDate() + '.' + (today.getMonth()+1) + '.' + today.getFullYear();
+        const date = today.getDate() + '.' + (today.getMonth() + 1) + '.' + today.getFullYear();
         return date
     }
 
@@ -28,16 +32,37 @@ function AddArticlePage() {
         author
     }
 
-    
 
-    return(
-        <form onSubmit={(e) => addArticle (e, article, history)}>
-            <h3>Add a new article:</h3>
+
+    return (
+        <form onSubmit={(e) => addArticle(e, article, history)}>
+            <h3 className={pageTitle} style={{ color: theme.navbar }}>Add a new article</h3>
             <div className={inputs}>
-                <input type="text" placeholder="Title" onChange={(e) => setTitle(e.target.value)}/>
-                <input type="text" placeholder="Author" onChange={(e) => setAuthor(e.target.value)}/>
-                <textarea type="text" placeholder="Content" onChange={(e) => setContent(e.target.value)}/>
-                <button type='submit'>Submit</button>
+                <input
+                    type="text"
+                    placeholder="Title"
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                />
+
+                <input
+                    type="text"
+                    placeholder="Author"
+                    onChange={(e) => setAuthor(e.target.value)}
+                    required
+                />
+                <textarea
+                    type="text"
+                    placeholder="Content"
+                    onChange={(e) => setContent(e.target.value)}
+                    required
+                />
+
+                <button
+                    type='submit'
+                    className={button}
+                    style={{ background: theme.navbar, color: theme.fontColor }}
+                >Submit</button>
             </div>
         </form>
     )

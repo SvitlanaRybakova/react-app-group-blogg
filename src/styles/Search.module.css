@@ -15,9 +15,9 @@
   border: 1px solid lightgray;
 }
 .button{
-  border: 1px solid lightgray;
-  background-color: rgb(71 103 70);
-  color: #ffff;
+  border: none;
+  /* background-color: rgb(71 103 70); */
+  /* color: #ffff; */
   border-radius: 5px;
   font-weight: bold;
   padding: 13px 40px;
@@ -25,3 +25,4 @@
   margin-bottom: 20px;
   cursor: pointer;
 }
+
