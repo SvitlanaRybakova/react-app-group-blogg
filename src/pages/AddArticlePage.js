@@ -19,8 +19,10 @@ function AddArticlePage() {
     const history = useHistory()
 
     function currentDate() {
-        const today = new Date();
-        const date = today.getDate() + '.' + (today.getMonth() + 1) + '.' + today.getFullYear();
+        const today = new Date(); 
+        // for months january-sept (index 1-9) add 0 in front of month's index
+        const prefix = today.getMonth() <= 9 ? '0' : '' 
+        const date = today.getFullYear() + '-' + prefix + (today.getMonth() + 1) + '-' + today.getDate();
         return date
     }
 
