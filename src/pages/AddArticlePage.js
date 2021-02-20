@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { ArticleContext } from '../contexts/ArticleContext';
 import { inputs, button, pageTitle } from '../styles/AddArticlePage.module.css';
 import { ThemeContext } from "../contexts/ThemeContext";
-
+import { v4 as uuidv4 } from 'uuid'
 
 
 function AddArticlePage() {
@@ -27,7 +27,7 @@ function AddArticlePage() {
     }
 
     const article = {
-        id: 'some id',
+        id: uuidv4(),
         title,
         content,
         date: currentDate(),
