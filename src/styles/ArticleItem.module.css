@@ -14,6 +14,8 @@
   padding: 2rem;
   border-radius: 0.5rem;
   margin-bottom: 2rem;
+
+  position: relative;
 }
 
 .header{
@@ -39,4 +41,18 @@ font-style: italic;
 .author{
   font-weight: bold;
   font-style: italic;
+}
+
+.btnClose {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.btnClose:hover {
+  background-color:#6e9a44;
+  color: #eee;
 }
