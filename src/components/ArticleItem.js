@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 
 function ArticleItem() {
-  const { articles } = useContext(ArticleContext);
+  const { articles, removeArticle } = useContext(ArticleContext);
   const { isGreenTheme, green, dark } = useContext(ThemeContext);
   const theme = isGreenTheme ? green : dark;
 
@@ -24,6 +24,7 @@ function ArticleItem() {
               <span className={styles.timestamp}>{article.date}</span>
               <span className={styles.author}>{article.author}</span>
             </div>
+            <span onClick={() => removeArticle(article)} className={styles.btnClose}>&times;</span>
           </section>
         )
       })}

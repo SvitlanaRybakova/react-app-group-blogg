@@ -85,10 +85,12 @@ function ArticleContextProvider(props) {
 
   }
 
-
+  const removeArticle = (article) => {
+    setArticle(articles.filter(a => a !== article))
+  }
 
   return (
-    <ArticleContext.Provider value={{ articles, searchInput, onChange, findArticle, isNecessaryArticle, addArticle }}>
+    <ArticleContext.Provider value={{ articles, searchInput, onChange, findArticle, isNecessaryArticle, addArticle, removeArticle }}>
       {props.children}
     </ArticleContext.Provider>
   )
