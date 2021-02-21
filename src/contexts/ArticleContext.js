@@ -7,7 +7,10 @@ function ArticleContextProvider(props) {
 
   const [searchInput, setSearchInpit] = useState('');
   const [isNecessaryArticle, setNecessaryArticle] = useState(true)
-  const [articles, setArticle] = useState([
+
+  // If there is data with key 'articles' in local storage then we get it from there 
+  //If there is no data with key 'articles' in local storage then we use the original array
+  const [articles, setArticle] = useState(JSON.parse(localStorage.getItem('articles')) || [
     {
       id: uuidv4(),
       title: 'JS makes me cry',
@@ -78,15 +81,30 @@ function ArticleContextProvider(props) {
     setSearchInpit(e.target.value);
   }
 
+  //New State for saving articles to LocalStorage
+  const [isArticlesChanged, setArticlesChanged] = useState(false)
+
+  useEffect(() => {
+    // If isArticlesChanged === true, we save articles to local storage
+    if(isArticlesChanged){
+      localStorage.setItem('articles', JSON.stringify(articles))
+    } // and set isArticlesChanged back to false.
+    setArticlesChanged(false)
+    
+    // useEffect hook runs only if isArticlesChanged variable is set to true.
+  }, [isArticlesChanged])
+
   const addArticle = (e, article, history) => {
     e.preventDefault()
     setArticle([article, ...articles])
+    setArticlesChanged(true) // Setting "setArticlesChanged" to true so useEffect runs and articles are saving to local storage
     history.push('/')
 
   }
 
   const removeArticle = (article) => {
     setArticle(articles.filter(a => a !== article))
+    setArticlesChanged(true) // Setting "setArticlesChanged" to true so useEffect runs and articles are saving to local storage
   }
 
   return (
