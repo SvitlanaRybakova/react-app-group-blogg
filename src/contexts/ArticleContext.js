@@ -50,10 +50,13 @@ function ArticleContextProvider(props) {
   ])
   // create a new array that all-time saves the data
   const [copyArticle, setCopyArticle] = useState([])
+  
+  //New State for saving articles to LocalStorage
+  const [isArticlesChanged, setArticlesChanged] = useState(false)
 
   useEffect(() => {
     setCopyArticle(articles)
-  }, [copyArticle]);
+  }, [isArticlesChanged]);
 
 
   const findArticle = (e) => {
@@ -81,8 +84,7 @@ function ArticleContextProvider(props) {
     setSearchInpit(e.target.value);
   }
 
-  //New State for saving articles to LocalStorage
-  const [isArticlesChanged, setArticlesChanged] = useState(false)
+  
 
   useEffect(() => {
     // If isArticlesChanged === true, we save articles to local storage
